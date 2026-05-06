@@ -68,9 +68,7 @@ describe("useUpdateIncident", () => {
       expect(list?.[0].status).toBe("In Progress");
     });
 
-    const detail = client.getQueryData<Incident>(
-      incidentKeys.detail("inc-1"),
-    );
+    const detail = client.getQueryData<Incident>(incidentKeys.detail("inc-1"));
     expect(detail?.status).toBe("In Progress");
     expect(detail?.statusHistory).toHaveLength(2);
 

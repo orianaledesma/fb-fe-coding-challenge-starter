@@ -1,10 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import {
-  defaultFilters,
-  type IncidentFilters,
-} from "../utils/filterIncidents";
+import { defaultFilters, type IncidentFilters } from "../utils/filterIncidents";
 import {
   defaultSort,
   type SortConfig,
@@ -35,7 +32,9 @@ export function useIncidentSearchParams(): IncidentListUrlState & UpdaterApi {
 
   const state = useMemo<IncidentListUrlState>(() => {
     const status = params.get("status") as IncidentFilters["status"] | null;
-    const severity = params.get("severity") as IncidentFilters["severity"] | null;
+    const severity = params.get("severity") as
+      | IncidentFilters["severity"]
+      | null;
     const assignee = params.get("assignee") ?? "all";
     const search = params.get("q") ?? "";
     const sortField = params.get("sort") as SortField | null;
@@ -49,8 +48,7 @@ export function useIncidentSearchParams(): IncidentListUrlState & UpdaterApi {
             ? status
             : defaultFilters.status,
         severity:
-          severity &&
-          ["Low", "Medium", "High", "Critical"].includes(severity)
+          severity && ["Low", "Medium", "High", "Critical"].includes(severity)
             ? severity
             : defaultFilters.severity,
         assigneeId: assignee as IncidentFilters["assigneeId"],

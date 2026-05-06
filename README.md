@@ -2,13 +2,12 @@
 
 Production-quality frontend for an internal operations team to view, triage, create, and resolve incidents. Built on top of the provided starter project (React 18 + TypeScript + Vite + mock API).
 
-> **Live brief:** see [candidate-brief.md](./candidate-brief.md) for the full task description.
-
 ---
 
 ## Quick start
 
 ### Prerequisites
+
 - Node.js 18+
 - npm
 
@@ -58,11 +57,13 @@ I deliberately avoided Redux/Zustand: there's no cross-cutting client state that
 ### Data fetching strategy
 
 A typed `http<T>(url, opts)` wrapper (`src/lib/http.ts`) sits on top of `fetch`:
+
 - Throws a custom `HttpError` carrying `status` + `body` so the UI can switch on status (e.g. distinguishing 404 in detail page).
 - Surfaces the mock's `{ error: "…" }` body as `error.message`, which is what populates form server errors and toasts.
 - Handles `204 No Content` and JSON/text content types.
 
 Mutations follow a consistent pattern:
+
 - **Create** (`useCreateIncident`) — on success, prepends to the list cache and seeds the detail cache. No optimistic UI because we don't have an ID until the server replies.
 - **Update** (`useUpdateIncident`) — full optimistic flow: `onMutate` snapshots both list and detail caches, applies a synthesized update (including a new `statusHistory` entry when status changes), `onError` rolls back from the snapshot, `onSettled` invalidates both queries to reconcile with the server.
 - **Delete** (`useDeleteIncident`) — on success, removes from list cache and drops the detail query.
@@ -92,6 +93,7 @@ Mutations follow a consistent pattern:
 ### Component library — Radix UI (headless)
 
 Used for primitives that are notoriously hard to make accessible from scratch:
+
 - **Select** (status, severity, assignee filters and form fields)
 - **Dialog** (delete confirmation)
 - **Toast** (mutation feedback)
@@ -102,12 +104,12 @@ Each Radix primitive is wrapped in a project-owned component (`components/ui/*`)
 
 React Router v6 with `createBrowserRouter`:
 
-| Path | Page |
-|---|---|
-| `/` | List with filters/sort in URL params |
-| `/incidents/new` | Create form |
+| Path             | Page                                         |
+| ---------------- | -------------------------------------------- |
+| `/`              | List with filters/sort in URL params         |
+| `/incidents/new` | Create form                                  |
 | `/incidents/:id` | Detail view + inline edit (status, assignee) |
-| `*` | NotFound |
+| `*`              | NotFound                                     |
 
 ---
 
@@ -162,16 +164,16 @@ The `features/` boundary contains everything domain-specific. `components/ui/*` 
 
 44 tests across 8 files. Strategy: prioritize behavior over coverage.
 
-| Suite | What it covers |
-|---|---|
-| `api/mockApi.test.ts` | Mock API endpoints (provided, kept) |
-| `utils/filterIncidents.test.ts` | All filter combinators + AND semantics |
-| `utils/sortIncidents.test.ts` | Severity rank, alphabetical, immutability |
-| `schemas/incidentSchema.test.ts` | Trim, length bounds, enum validation, defaults |
-| `components/IncidentForm.test.tsx` | Validation blocks submit; happy path with Radix Select; server error display; submitting state |
-| `pages/IncidentListPage.test.tsx` | Loading → list render; filter by status; free-text search |
-| `pages/IncidentDetailPage.test.tsx` | Detail render; optimistic status update; 404 handling |
-| `hooks/useUpdateIncident.test.tsx` | Optimistic update visible in list+detail; rollback on error |
+| Suite                               | What it covers                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `api/mockApi.test.ts`               | Mock API endpoints (provided, kept)                                                            |
+| `utils/filterIncidents.test.ts`     | All filter combinators + AND semantics                                                         |
+| `utils/sortIncidents.test.ts`       | Severity rank, alphabetical, immutability                                                      |
+| `schemas/incidentSchema.test.ts`    | Trim, length bounds, enum validation, defaults                                                 |
+| `components/IncidentForm.test.tsx`  | Validation blocks submit; happy path with Radix Select; server error display; submitting state |
+| `pages/IncidentListPage.test.tsx`   | Loading → list render; filter by status; free-text search                                      |
+| `pages/IncidentDetailPage.test.tsx` | Detail render; optimistic status update; 404 handling                                          |
+| `hooks/useUpdateIncident.test.tsx`  | Optimistic update visible in list+detail; rollback on error                                    |
 
 ### Test infrastructure
 
@@ -259,7 +261,7 @@ I used [Claude Code](https://claude.com/claude-code) (Anthropic) as a pair progr
 - **Test scaffolding** — generated the initial test cases for utilities and components. I refined assertions, added the optimistic update test, and debugged jsdom incompatibilities (the `hasPointerCapture` polyfill was the main one).
 - **Validation patterns** — discussed Zod vs hand-rolled validation; chose Zod for the schema demonstration value at senior level.
 
-What I did *not* delegate: architectural decisions, type design, UX/a11y patterns, the optimistic update flow, or the design-token system. The README, the trade-off section, and every PR-ready commit message reflect my own judgment.
+What I did _not_ delegate: architectural decisions, type design, UX/a11y patterns, the optimistic update flow, or the design-token system. The README, the trade-off section, and every PR-ready commit message reflect my own judgment.
 
 ---
 
@@ -277,14 +279,14 @@ What I did *not* delegate: architectural decisions, type design, UX/a11y pattern
 
 ## Mock API reference
 
-| Method | Endpoint | Notes |
-|---|---|---|
-| `GET` | `/api/incidents` | List |
-| `GET` | `/api/incidents/:id` | Detail (404 if missing) |
-| `POST` | `/api/incidents` | Create — validates `title` and `severity`, returns 400 with `{ error }` |
-| `PATCH` | `/api/incidents/:id` | Update — auto-appends to `statusHistory` on status change |
-| `DELETE` | `/api/incidents/:id` | 204 on success |
-| `GET` | `/api/users` | Assignee list |
-| `POST` | `/api/reset` | Reset to seed data |
+| Method   | Endpoint             | Notes                                                                   |
+| -------- | -------------------- | ----------------------------------------------------------------------- |
+| `GET`    | `/api/incidents`     | List                                                                    |
+| `GET`    | `/api/incidents/:id` | Detail (404 if missing)                                                 |
+| `POST`   | `/api/incidents`     | Create — validates `title` and `severity`, returns 400 with `{ error }` |
+| `PATCH`  | `/api/incidents/:id` | Update — auto-appends to `statusHistory` on status change               |
+| `DELETE` | `/api/incidents/:id` | 204 on success                                                          |
+| `GET`    | `/api/users`         | Assignee list                                                           |
+| `POST`   | `/api/reset`         | Reset to seed data                                                      |
 
 Types live in `src/api/types.ts`.

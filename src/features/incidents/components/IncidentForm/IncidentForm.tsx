@@ -180,7 +180,9 @@ export function IncidentForm({
         <Button
           type="submit"
           disabled={submitting}
-          leftIcon={submitting ? <Spinner size="sm" label="Submitting" /> : undefined}
+          leftIcon={
+            submitting ? <Spinner size="sm" label="Submitting" /> : undefined
+          }
         >
           {submitting ? "Creating…" : submitLabel}
         </Button>

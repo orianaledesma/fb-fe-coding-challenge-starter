@@ -68,10 +68,8 @@ export function IncidentDetailPage() {
     updateMutation.mutate(
       { id, input: { status: status as typeof incident.status } },
       {
-        onSuccess: () =>
-          toast.success("Status updated", `Now ${status}.`),
-        onError: (err) =>
-          toast.error("Couldn't update status", err.message),
+        onSuccess: () => toast.success("Status updated", `Now ${status}.`),
+        onError: (err) => toast.error("Couldn't update status", err.message),
       },
     );
   };
@@ -83,12 +81,11 @@ export function IncidentDetailPage() {
       {
         onSuccess: () => {
           const name = assigneeId
-            ? users.find((u) => u.id === assigneeId)?.name ?? "user"
+            ? (users.find((u) => u.id === assigneeId)?.name ?? "user")
             : "Unassigned";
           toast.success("Assignee updated", `Now: ${name}.`);
         },
-        onError: (err) =>
-          toast.error("Couldn't update assignee", err.message),
+        onError: (err) => toast.error("Couldn't update assignee", err.message),
       },
     );
   };
@@ -152,7 +149,11 @@ export function IncidentDetailPage() {
           {incident.description ? (
             <p className={styles.description}>{incident.description}</p>
           ) : (
-            <p className={[styles.description, styles.descriptionEmpty].join(" ")}>
+            <p
+              className={[styles.description, styles.descriptionEmpty].join(
+                " ",
+              )}
+            >
               No description provided.
             </p>
           )}

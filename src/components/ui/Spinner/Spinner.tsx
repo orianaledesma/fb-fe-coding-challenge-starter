@@ -15,10 +15,7 @@ export function Spinner({ size = "md", label }: SpinnerProps) {
     ? { role: "status" as const, "aria-label": label }
     : { "aria-hidden": true as const };
   return (
-    <span
-      className={[styles.spinner, styles[size]].join(" ")}
-      {...ariaProps}
-    />
+    <span className={[styles.spinner, styles[size]].join(" ")} {...ariaProps} />
   );
 }
 

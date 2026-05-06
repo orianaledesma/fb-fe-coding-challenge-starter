@@ -33,7 +33,8 @@ export function IncidentListPage() {
     [incidents, filters, sort],
   );
 
-  const isFiltering = JSON.stringify(filters) !== JSON.stringify(defaultFilters);
+  const isFiltering =
+    JSON.stringify(filters) !== JSON.stringify(defaultFilters);
 
   return (
     <div className={styles.page}>
@@ -49,11 +50,7 @@ export function IncidentListPage() {
         </Link>
       </header>
 
-      <IncidentFilters
-        filters={filters}
-        users={users}
-        onChange={setFilters}
-      />
+      <IncidentFilters filters={filters} users={users} onChange={setFilters} />
 
       {incidentsQuery.isPending ? (
         <LoadingBlock label="Loading incidents…" />
@@ -83,7 +80,10 @@ export function IncidentListPage() {
           message="Try clearing some filters or refining your search."
           action={
             isFiltering ? (
-              <Button variant="secondary" onClick={() => setFilters(defaultFilters)}>
+              <Button
+                variant="secondary"
+                onClick={() => setFilters(defaultFilters)}
+              >
                 Reset filters
               </Button>
             ) : null

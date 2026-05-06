@@ -43,7 +43,8 @@ export function NewIncidentPage() {
       <header>
         <h1 className={styles.title}>New incident</h1>
         <p className={styles.subtitle}>
-          Capture the issue, set severity, and assign an owner so the team can act.
+          Capture the issue, set severity, and assign an owner so the team can
+          act.
         </p>
       </header>
 

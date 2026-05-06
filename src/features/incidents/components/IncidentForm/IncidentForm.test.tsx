@@ -37,10 +37,7 @@ describe("IncidentForm", () => {
       screen.getByLabelText(/title/i),
       "  Sample incident title  ",
     );
-    await user.type(
-      screen.getByLabelText(/description/i),
-      "Some details here",
-    );
+    await user.type(screen.getByLabelText(/description/i), "Some details here");
 
     // Open severity Select and choose High
     await user.click(screen.getByRole("combobox", { name: /severity/i }));
@@ -72,8 +69,6 @@ describe("IncidentForm", () => {
     renderWithProviders(
       <IncidentForm users={users} onSubmit={vi.fn()} submitting />,
     );
-    expect(
-      screen.getByRole("button", { name: /creating/i }),
-    ).toBeDisabled();
+    expect(screen.getByRole("button", { name: /creating/i })).toBeDisabled();
   });
 });

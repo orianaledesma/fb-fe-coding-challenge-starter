@@ -30,7 +30,9 @@ export function AllProviders({
     <QueryClientProvider client={queryClient}>
       <Toast.Provider>
         <ToastProvider>
-          <MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>
+          <MemoryRouter initialEntries={initialEntries}>
+            {children}
+          </MemoryRouter>
         </ToastProvider>
       </Toast.Provider>
     </QueryClientProvider>

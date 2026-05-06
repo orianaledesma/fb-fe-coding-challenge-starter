@@ -6,7 +6,11 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link to="/" className={styles.brand} aria-label="Incident Dashboard — Home">
+        <Link
+          to="/"
+          className={styles.brand}
+          aria-label="Incident Dashboard — Home"
+        >
           <span className={styles.brandMark} aria-hidden="true">
             ID
           </span>

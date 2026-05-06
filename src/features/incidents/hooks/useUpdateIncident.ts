@@ -56,7 +56,9 @@ export function useUpdateIncident() {
       if (previousList) {
         queryClient.setQueryData<Incident[]>(
           incidentKeys.list(),
-          previousList.map((inc) => (inc.id === id ? applyOptimistic(inc) : inc)),
+          previousList.map((inc) =>
+            inc.id === id ? applyOptimistic(inc) : inc,
+          ),
         );
       }
 

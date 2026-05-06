@@ -15,7 +15,10 @@ interface RequestOptions {
   signal?: AbortSignal;
 }
 
-export async function http<T>(url: string, opts: RequestOptions = {}): Promise<T> {
+export async function http<T>(
+  url: string,
+  opts: RequestOptions = {},
+): Promise<T> {
   const { method = "GET", body, signal } = opts;
 
   const response = await fetch(url, {

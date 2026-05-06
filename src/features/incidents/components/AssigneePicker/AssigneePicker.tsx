@@ -30,9 +30,7 @@ export function AssigneePicker({
   allowUnassigned = true,
 }: AssigneePickerProps) {
   const options = [
-    ...(allowUnassigned
-      ? [{ value: UNASSIGNED, label: "Unassigned" }]
-      : []),
+    ...(allowUnassigned ? [{ value: UNASSIGNED, label: "Unassigned" }] : []),
     ...users.map((u) => ({ value: u.id, label: u.name })),
   ];
 

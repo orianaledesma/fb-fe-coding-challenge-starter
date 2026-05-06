@@ -163,7 +163,9 @@ function SortIcon({ active, direction }: SortIconProps) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {!active || direction === "asc" ? <polyline points="3 7 6 4 9 7" /> : null}
+      {!active || direction === "asc" ? (
+        <polyline points="3 7 6 4 9 7" />
+      ) : null}
       {!active || direction === "desc" ? (
         <polyline points="3 5 6 8 9 5" />
       ) : null}

@@ -43,8 +43,8 @@ describe("IncidentDetailPage", () => {
 
     // Timeline shows at least the initial Open status entry
     const timelines = screen.getAllByRole("list");
-    const timeline = timelines.find((el) =>
-      within(el).queryAllByText(/open/i).length > 0,
+    const timeline = timelines.find(
+      (el) => within(el).queryAllByText(/open/i).length > 0,
     );
     expect(timeline).toBeDefined();
   });

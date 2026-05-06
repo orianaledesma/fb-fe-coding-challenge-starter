@@ -1,6 +1,11 @@
 import type { Incident } from "../../../api/types";
 
-export type SortField = "createdAt" | "updatedAt" | "severity" | "status" | "title";
+export type SortField =
+  | "createdAt"
+  | "updatedAt"
+  | "severity"
+  | "status"
+  | "title";
 export type SortDirection = "asc" | "desc";
 
 export interface SortConfig {

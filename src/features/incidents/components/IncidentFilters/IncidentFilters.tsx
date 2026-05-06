@@ -2,10 +2,7 @@ import { useId } from "react";
 
 import { Button } from "../../../../components/ui/Button/Button";
 import { Select } from "../../../../components/ui/Select/Select";
-import {
-  SEVERITY_OPTIONS,
-  STATUS_OPTIONS,
-} from "../../schemas/incidentSchema";
+import { SEVERITY_OPTIONS, STATUS_OPTIONS } from "../../schemas/incidentSchema";
 import { defaultFilters } from "../../utils/filterIncidents";
 import type { IncidentFilters as Filters } from "../../utils/filterIncidents";
 import type { User } from "../../../../api/types";
@@ -91,9 +88,7 @@ export function IncidentFilters({
       <Select
         label="Assignee"
         value={filters.assigneeId}
-        onValueChange={(v) =>
-          update("assigneeId", v as Filters["assigneeId"])
-        }
+        onValueChange={(v) => update("assigneeId", v as Filters["assigneeId"])}
         options={assigneeOptions}
       />
 
