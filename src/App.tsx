@@ -1,11 +1,17 @@
-import "./App.css";
+import { Outlet } from "react-router-dom";
 
-function App() {
+import { Header } from "./components/layout/Header/Header";
+import { PageContainer } from "./components/layout/PageContainer/PageContainer";
+import { SkipLink } from "./components/layout/SkipLink/SkipLink";
+
+export default function App() {
   return (
-    <div className="app">
-      <h1>Team Incident Dashboard - Starter Project</h1>
-    </div>
+    <>
+      <SkipLink targetId="main-content" />
+      <Header />
+      <PageContainer>
+        <Outlet />
+      </PageContainer>
+    </>
   );
 }
-
-export default App;
