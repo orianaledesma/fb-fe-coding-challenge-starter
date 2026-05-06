@@ -212,15 +212,41 @@ The `features/` boundary contains everything domain-specific. `components/ui/*` 
 
 ## Screenshots
 
-> _Screenshots are pending — will be added after final verification on the dev server._
+### Desktop
 
-```
-docs/screenshots/
-├── desktop-list.png
-├── desktop-detail.png
-├── desktop-new.png
-└── mobile-list.png
-```
+**Incident list with filters and sortable columns**
+
+<img src="docs/screenshots/desktop-list.png" alt="Desktop view of the incident list with title, status, severity, assignee and creation date columns" width="900" />
+
+**Filters in action — narrowing by status, severity and assignee**
+
+<img src="docs/screenshots/desktop-filter.png" alt="Desktop view showing active filters narrowing the incident list" width="900" />
+
+**Incident detail with status timeline and inline editing**
+
+<img src="docs/screenshots/desktop-detail.png" alt="Desktop view of an incident detail showing description, metadata, status history timeline and the manage panel for status and assignee" width="900" />
+
+**New incident form with inline validation**
+
+<img src="docs/screenshots/desktop-new.png" alt="Desktop view of the new incident form with title, description, severity and assignee fields" width="900" />
+
+### Mobile
+
+**Incident list — responsive card-style rows**
+
+<img src="docs/screenshots/mobile-list.png" alt="Mobile view of the incident list collapsed into stacked card-style rows" width="320" />
+
+**Filters stacked vertically on small viewports**
+
+<img src="docs/screenshots/mobile-filter.png" alt="Mobile view of the filter toolbar stacked into a single column" width="320" />
+
+**Detail view — sidebar collapses below the main panel**
+
+<img src="docs/screenshots/mobile-detail.png" alt="Mobile view of the incident detail with the manage panel below the description" width="320" />
+
+**New incident form on mobile**
+
+<img src="docs/screenshots/mobile-new.png" alt="Mobile view of the new incident form with stacked fields" width="320" />
 
 ---
 
