@@ -1,0 +1,54 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.statusOpen {
+  background-color: var(--color-info-soft);
+  color: var(--color-info);
+}
+
+.statusInProgress {
+  background-color: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.statusResolved {
+  background-color: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.severityLow {
+  background-color: var(--color-severity-low-soft);
+  color: var(--color-severity-low);
+}
+
+.severityMedium {
+  background-color: var(--color-severity-medium-soft);
+  color: var(--color-severity-medium);
+}
+
+.severityHigh {
+  background-color: var(--color-severity-high-soft);
+  color: var(--color-severity-high);
+}
+
+.severityCritical {
+  background-color: var(--color-severity-critical-soft);
+  color: var(--color-severity-critical);
+}

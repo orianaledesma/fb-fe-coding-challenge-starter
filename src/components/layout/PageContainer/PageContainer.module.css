@@ -1,0 +1,16 @@
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: var(--space-5) var(--space-4);
+  }
+}

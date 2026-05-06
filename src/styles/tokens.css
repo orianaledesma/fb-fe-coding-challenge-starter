@@ -1,0 +1,86 @@
+:root {
+  /* Brand */
+  --color-primary: #022346;
+  --color-primary-hover: #002a42;
+  --color-primary-active: #001f31;
+  --color-primary-soft: #e6edf2;
+
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f7f8fa;
+  --color-border: #e1e5ea;
+  --color-border-strong: #c4ccd3;
+  --color-text: #1a2733;
+  --color-text-muted: #5a6772;
+  --color-text-subtle: #8a96a3;
+
+  /* Semantic */
+  --color-success: #1f7a4d;
+  --color-success-soft: #e3f3eb;
+  --color-warning: #b8730a;
+  --color-warning-soft: #fbf1de;
+  --color-danger: #b22a2a;
+  --color-danger-soft: #fbe6e6;
+  --color-info: #1f5a99;
+  --color-info-soft: #e3edf6;
+
+  /* Severity */
+  --color-severity-low: #5a6772;
+  --color-severity-low-soft: #eef0f3;
+  --color-severity-medium: #1f5a99;
+  --color-severity-medium-soft: #e3edf6;
+  --color-severity-high: #b8730a;
+  --color-severity-high-soft: #fbf1de;
+  --color-severity-critical: #b22a2a;
+  --color-severity-critical-soft: #fbe6e6;
+
+  /* Spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Typography */
+  --font-sans: "Danske-Regular", "Danske-Medium", Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 15px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 30, 50, 0.06);
+  --shadow-md:
+    0 4px 12px rgba(0, 30, 50, 0.08), 0 1px 3px rgba(0, 30, 50, 0.06);
+  --shadow-lg:
+    0 12px 32px rgba(0, 30, 50, 0.12), 0 2px 6px rgba(0, 30, 50, 0.08);
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 64px;
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(0, 55, 85, 0.25);
+}
